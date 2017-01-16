@@ -98,7 +98,7 @@
                     <navigationItem key="navigationItem" id="pkf-OS-1WA">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="UNr-6U-6Nk">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="4OX-Gb-9Tv"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="addMeal" id="4OX-Gb-9Tv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

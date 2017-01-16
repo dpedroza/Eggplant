@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D040BC041E2CFABD00B07363 /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D040BC031E2CFABD00B07363 /* ViewControllerDelegate.swift */; };
 		D0A6A6671E27BAC90048D9B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A6A6661E27BAC90048D9B1 /* AppDelegate.swift */; };
 		D0A6A66E1E27BAC90048D9B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A6A66D1E27BAC90048D9B1 /* Assets.xcassets */; };
 		D0A6A6711E27BAC90048D9B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A6A66F1E27BAC90048D9B1 /* LaunchScreen.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D040BC031E2CFABD00B07363 /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
 		D0A6A6631E27BAC90048D9B1 /* eggplant-brownie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eggplant-brownie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A6A6661E27BAC90048D9B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A6A66D1E27BAC90048D9B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				D0A6A69B1E2902C80048D9B1 /* Meal.swift */,
+				D040BC031E2CFABD00B07363 /* ViewControllerDelegate.swift */,
 				D0A6A69D1E2902D70048D9B1 /* Item.swift */,
 			);
 			path = models;
@@ -297,6 +300,7 @@
 				D0A6A69C1E2902C80048D9B1 /* Meal.swift in Sources */,
 				D0A6A6A01E29088C0048D9B1 /* ViewController.swift in Sources */,
 				D0A6A6671E27BAC90048D9B1 /* AppDelegate.swift in Sources */,
+				D040BC041E2CFABD00B07363 /* ViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
