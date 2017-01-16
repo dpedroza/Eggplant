@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealsTableViewController: UITableViewController, ViewControllerDelegate {
+class MealsTableViewController: UITableViewController, AddMealDelegate {
     var meals:Array<Meal> = []
     
     func add(_ meal:Meal) {

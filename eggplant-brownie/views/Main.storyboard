@@ -60,17 +60,27 @@
                                     <action selector="add" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oje-Jp-Cht"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XiY-FZ-0ST">
+                                <rect key="frame" x="0.0" y="274" width="375" height="393"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="8cJ-VK-0ei"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wHq-CA-mq4"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="happinessField" destination="9c4-4q-7Ns" id="dx4-yi-JCb"/>
                         <outlet property="nameField" destination="WxV-xq-GY8" id="24J-z8-EYI"/>
+                        <outlet property="tableView" destination="XiY-FZ-0ST" id="MNS-dZ-2tA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="143"/>
+            <point key="canvasLocation" x="604" y="142.57871064467767"/>
         </scene>
         <!--Meals Table View Controller-->
         <scene sceneID="ePc-SJ-mcN">
