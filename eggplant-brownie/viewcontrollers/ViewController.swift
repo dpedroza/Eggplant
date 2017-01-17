@@ -26,8 +26,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func add(_ item: Item) {
         items.append(item)
         if let table = tableView {
+            
             table.reloadData()
+            
+        } else {
+            
+            failure()
+            
         }
+    }
+    
+    func failure() {
+        
+        let alert = UIAlertController(title: "Erro", message: "Falha ao atualizar os dados da tabela", preferredStyle: UIAlertControllerStyle.alert)
+        let button = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+        
+        alert.addAction(button)
+        
+        present(alert, animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {
