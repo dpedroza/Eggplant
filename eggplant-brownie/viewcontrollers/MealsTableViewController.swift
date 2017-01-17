@@ -50,9 +50,18 @@ class MealsTableViewController: UITableViewController, AddMealDelegate {
             let cell = recognizer.view as! UITableViewCell
             
             if let indexPath = tableView.indexPath(for: cell) {
+                 
                 let row = indexPath.row
                 let meal = meals[row]
-                print("Details shown for \(meal.name)")
+                
+                let details = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertControllerStyle.alert)
+                
+                let button = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+                
+                details.addAction(button)
+                
+                present(details, animated: true, completion: nil)
+                
             }
             
         }
