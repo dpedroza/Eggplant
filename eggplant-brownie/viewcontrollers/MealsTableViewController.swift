@@ -36,7 +36,26 @@ class MealsTableViewController: UITableViewController, AddMealDelegate {
         
         cell.textLabel!.text = meal.name
         
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(showDetails))
+        
+        cell.addGestureRecognizer(longPress)
+        
         return cell
+    }
+    
+    func showDetails (recognizer: UILongPressGestureRecognizer)  {
+        
+        if (recognizer.state == UIGestureRecognizerState.began) {
+            
+            let cell = recognizer.view as! UITableViewCell
+            
+            if let indexPath = tableView.indexPath(for: cell) {
+                let row = indexPath.row
+                let meal = meals[row]
+                print("Details shown for \(meal.name)")
+            }
+            
+        }
     }
     
 }

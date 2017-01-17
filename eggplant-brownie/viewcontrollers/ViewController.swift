@@ -61,7 +61,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let happiness:Int = Int(happinessField!.text!) {
             
             let meal = Meal(name: name, happiness: happiness, items: selected)
-        print("eaten \(meal.name) with happiness \(meal.happiness) with \(meal.items)")
+            
+            print("eaten \(meal.name) with happiness \(meal.happiness) with \(meal.items)")
             
             if (delegate == nil) {
                 return
