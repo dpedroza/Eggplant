@@ -31,20 +31,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
         } else {
             
-            failure()
+            Alert(controller: self).show(title: "Erro", message: "Falha ao atualizar dados da tabela")
             
         }
-    }
-    
-    func failure() {
-        
-        let alert = UIAlertController(title: "Erro", message: "Falha ao atualizar os dados da tabela", preferredStyle: UIAlertControllerStyle.alert)
-        let button = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
-        
-        alert.addAction(button)
-        
-        present(alert, animated: true, completion: nil)
-        
     }
     
     override func viewDidLoad() {
