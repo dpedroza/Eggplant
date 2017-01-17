@@ -75,6 +75,7 @@
                     <connections>
                         <outlet property="happinessField" destination="9c4-4q-7Ns" id="dx4-yi-JCb"/>
                         <outlet property="nameField" destination="WxV-xq-GY8" id="24J-z8-EYI"/>
+                        <outlet property="tableView" destination="XiY-FZ-0ST" id="MrF-OQ-wmQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -114,7 +115,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGt-Bb-p1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-196" y="142.57871064467767"/>
+            <point key="canvasLocation" x="-289" y="143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3F2-TR-a4f">

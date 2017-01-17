@@ -17,7 +17,7 @@ class Alert {
         self.controller = controller
     }
     
-    func show(title:String, message: String) {
+    func show(title:String = "Erro", message: String = "Erro desconhecido") {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         

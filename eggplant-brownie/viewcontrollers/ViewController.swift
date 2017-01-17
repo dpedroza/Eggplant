@@ -48,6 +48,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if let navigation = navigationController {
             navigation.pushViewController(newItem, animated: true)
+        } else {
+            Alert(controller: self).show()
         }
         
     }
@@ -59,28 +61,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func add() {
         
+        if let meal = getMealFromForm() {
+            
+            delegate?.add(meal)
+            
+            if let navigation = navigationController {
+                navigation.popViewController(animated: true)
+            }
+            
+        } else {
+            Alert(controller: self).show()
+        }
+        
+    }
+    
+    func getMealFromForm() -> Meal? {
+        
         if (nil == nameField || nil == happinessField) {
-            return
+            return nil
         }
         
         let name:String = nameField!.text!
         if let happiness:Int = Int(happinessField!.text!) {
             
-            let meal = Meal(name: name, happiness: happiness, items: selected)
-            
-            print("eaten \(meal.name) with happiness \(meal.happiness) with \(meal.items)")
-            
-            if (delegate == nil) {
-                return
-            }
-            
-            delegate?.add(meal)
-            
-            if let navigation = navigationController {
-                    navigation.popViewController(animated: true)
-            }
+            return Meal(name: name, happiness: happiness, items: selected)
             
         }
+            
+        return nil
         
     }
     
