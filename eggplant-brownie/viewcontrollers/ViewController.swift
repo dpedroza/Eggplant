@@ -10,18 +10,23 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddItemDelegate {
 
+    // View fields
+    
     @IBOutlet var nameField:UITextField?
     @IBOutlet var happinessField:UITextField?
+    @IBOutlet var tableView: UITableView?
+    
     var delegate: AddMealDelegate?
     
     var items = [
-        Item(name: "Eggplant", calories: 100),
-        Item(name: "Goiabada", calories: 200),
-        Item(name: "Queijinho", calories: 523),
-        Item(name: "Sanduba", calories: 30)]
+        Item(name: "Egg", calories: 50),
+        Item(name: "Milk", calories: 200),
+        Item(name: "Butter", calories: 520),
+        Item(name: "Flour", calories: 130)]
+    
     var selected = Array<Item>()
     
-    @IBOutlet var tableView: UITableView?
+    // Add a new item to tableview
     
     func add(_ item: Item) {
         items.append(item)
@@ -31,10 +36,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
         } else {
             
-            Alert(controller: self).show(title: "Erro", message: "Falha ao atualizar dados da tabela")
+            Alert(controller: self).show(title: "Erro", message: "Can't update tableview data")
             
         }
     }
+    
+    // Bar Button Item is created and action func is setted
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +49,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         navigationItem.rightBarButtonItem = newItemButton
     }
+    
+    // Shows new item on the list
     
     func showNewItem() {
         let newItem = NewItemViewController(delegate: self)
@@ -53,44 +62,48 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    // Uses delegate to add a new meal to the list and navigate back
     
     @IBAction func add() {
         
         if let meal = getMealFromForm() {
             
-            delegate?.add(meal)
-            
-            if let navigation = navigationController {
-                navigation.popViewController(animated: true)
+            if let meals = delegate {
+                meals.add(meal)
+                if let navigation = navigationController {
+                    navigation.popViewController(animated: true)
+                }
             }
             
-        } else {
-            Alert(controller: self).show()
         }
         
     }
     
+    // Receive and wrap the form text into a Meal object
+    
     func getMealFromForm() -> Meal? {
-        
-        if (nil == nameField || nil == happinessField) {
-            return nil
+    
+        if let name = nameField?.text {
+            if let happiness = convertToInt(happinessField?.text) {
+                return Meal(name: name, happiness: happiness, items: selected)
+            }
         }
         
-        let name:String = nameField!.text!
-        if let happiness:Int = Int(happinessField!.text!) {
-            
-            return Meal(name: name, happiness: happiness, items: selected)
-            
-        }
-            
         return nil
         
     }
+    
+    // String? to Int? converter
+    
+    func convertToInt (_ text: String?) -> Int? {
+        if let number = text {
+            return Int(number)
+        }
+        return nil
+    }
+    
+    // Tableview functions
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row

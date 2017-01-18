@@ -1,21 +1,19 @@
-//
-//  Alert.swift
-//  eggplant-brownie
-//
-//  Created by David Pedroza on 1/17/17.
-//  Copyright © 2017 David Pedroza. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
 class Alert {
     
+    // UIViewController controller reference
+    
     let controller:UIViewController
+    
+    // Instantiate controller on init
     
     init(controller: UIViewController) {
         self.controller = controller
     }
+    
+    // Shows a alert with title and message parameters and an ok button
     
     func show(title:String = "Erro", message: String = "Erro desconhecido") {
         

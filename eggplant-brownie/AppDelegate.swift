@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  eggplant-brownie
-//
-//  Created by David Pedroza on 1/12/17.
-//  Copyright © 2017 David Pedroza. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

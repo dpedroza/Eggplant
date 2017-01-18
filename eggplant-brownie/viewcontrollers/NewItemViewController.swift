@@ -1,28 +1,28 @@
-//
-//  NewItemViewController.swift
-//  eggplant-brownie
-//
-//  Created by David Pedroza on 1/16/17.
-//  Copyright © 2017 David Pedroza. All rights reserved.
-//
-
 import UIKit
 
 class NewItemViewController: UIViewController {
+    
+    // View fields
     
     @IBOutlet var nameTextField: UITextField?
     @IBOutlet var caloriesTextField: UITextField?
     
     var delegate: AddItemDelegate?
     
+    // Init has a delegate self reference
+    
     init(delegate: AddItemDelegate) {
         super.init(nibName: "NewItemViewController", bundle: nil)
         self.delegate = delegate
     }
     
+    // Required initializer
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    // Add a item to tableview and navigate to that view
     
     @IBAction func addNewItem() {
         

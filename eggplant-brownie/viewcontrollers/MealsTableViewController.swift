@@ -9,12 +9,22 @@
 import UIKit
 
 class MealsTableViewController: UITableViewController, AddMealDelegate {
-    var meals:Array<Meal> = []
+    
+    // Dummie data
+    
+    var meals:Array<Meal> = [
+    Meal(name: "Cake", happiness: 3),
+    Meal(name: "Milk Shake", happiness: 5),
+    Meal(name: "Strogonoff", happiness: 4)]
+    
+    // Add a meal to table view and reload it
     
     func add(_ meal:Meal) {
         meals.append(meal)
         tableView.reloadData()
     }
+    
+    // Pass the delegate reference to ViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "addMeal") {
@@ -22,6 +32,34 @@ class MealsTableViewController: UITableViewController, AddMealDelegate {
             view.delegate = self
         }
     }
+    
+    // Show modal with meal details
+    
+    func showDetails (recognizer: UILongPressGestureRecognizer)  {
+        
+        if (recognizer.state == UIGestureRecognizerState.began) {
+            
+            let cell = recognizer.view as! UITableViewCell
+            
+            if let indexPath = tableView.indexPath(for: cell) {
+                
+                let row = indexPath.row
+                let meal = meals[row]
+                
+                let details = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertControllerStyle.alert)
+                
+                let button = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+                
+                details.addAction(button)
+                
+                present(details, animated: true, completion: nil)
+                
+            }
+            
+        }
+    }
+
+    // Tableview functions
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return meals.count
@@ -42,29 +80,4 @@ class MealsTableViewController: UITableViewController, AddMealDelegate {
         
         return cell
     }
-    
-    func showDetails (recognizer: UILongPressGestureRecognizer)  {
-        
-        if (recognizer.state == UIGestureRecognizerState.began) {
-            
-            let cell = recognizer.view as! UITableViewCell
-            
-            if let indexPath = tableView.indexPath(for: cell) {
-                 
-                let row = indexPath.row
-                let meal = meals[row]
-                
-                let details = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertControllerStyle.alert)
-                
-                let button = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
-                
-                details.addAction(button)
-                
-                present(details, animated: true, completion: nil)
-                
-            }
-            
-        }
-    }
-    
 }
