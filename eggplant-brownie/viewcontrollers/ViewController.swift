@@ -73,11 +73,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 meals.add(meal)
                 if let navigation = navigationController {
                     navigation.popViewController(animated: true)
+                } else {
+                    Alert(controller: self).show(title: "Error", message: "Unable to go back, but the meal was added")
                 }
+                return
             }
-            
         }
-        
+        Alert(controller: self).show()
     }
     
     // Receive and wrap the form text into a Meal object

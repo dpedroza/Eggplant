@@ -12,6 +12,7 @@
 		D08186BB1E2D460500AE1A7F /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08186BA1E2D460500AE1A7F /* NewItemViewController.swift */; };
 		D08186BD1E2D548A00AE1A7F /* AddItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08186BC1E2D548A00AE1A7F /* AddItemDelegate.swift */; };
 		D08186BF1E2E83CE00AE1A7F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08186BE1E2E83CE00AE1A7F /* Alert.swift */; };
+		D08186C11E2FDB1A00AE1A7F /* RemoveMealController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08186C01E2FDB1A00AE1A7F /* RemoveMealController.swift */; };
 		D0A6A6671E27BAC90048D9B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A6A6661E27BAC90048D9B1 /* AppDelegate.swift */; };
 		D0A6A66E1E27BAC90048D9B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A6A66D1E27BAC90048D9B1 /* Assets.xcassets */; };
 		D0A6A6711E27BAC90048D9B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A6A66F1E27BAC90048D9B1 /* LaunchScreen.storyboard */; };
@@ -47,6 +48,7 @@
 		D08186BA1E2D460500AE1A7F /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		D08186BC1E2D548A00AE1A7F /* AddItemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemDelegate.swift; sourceTree = "<group>"; };
 		D08186BE1E2E83CE00AE1A7F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		D08186C01E2FDB1A00AE1A7F /* RemoveMealController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveMealController.swift; sourceTree = "<group>"; };
 		D0A6A6631E27BAC90048D9B1 /* eggplant-brownie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eggplant-brownie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A6A6661E27BAC90048D9B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A6A66D1E27BAC90048D9B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				D08186BA1E2D460500AE1A7F /* NewItemViewController.swift */,
 				D0A6A69F1E29088C0048D9B1 /* ViewController.swift */,
 				D0A6A6DD1E294D460048D9B1 /* MealsTableViewController.swift */,
+				D08186C01E2FDB1A00AE1A7F /* RemoveMealController.swift */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08186C11E2FDB1A00AE1A7F /* RemoveMealController.swift in Sources */,
 				D08186BF1E2E83CE00AE1A7F /* Alert.swift in Sources */,
 				D0A6A6DE1E294D460048D9B1 /* MealsTableViewController.swift in Sources */,
 				D040BC061E2CFC1D00B07363 /* AddMealDelegate.swift in Sources */,
