@@ -30,6 +30,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add(_ item: Item) {
         items.append(item)
+        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let dir = userDirs[0]
+        let file = "\(dir)/eggplant-brownie-items.data"
+        NSKeyedArchiver.archiveRootObject(items, toFile: file)
         if let table = tableView {
             
             table.reloadData()
@@ -48,6 +52,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let newItemButton = UIBarButtonItem(title: "New item",  style: UIBarButtonItemStyle.plain, target: self, action: #selector(ViewController.showNewItem))
         
         navigationItem.rightBarButtonItem = newItemButton
+        
+        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let dir = userDirs[0]
+        let file = "\(dir)/eggplant-brownie-items.data"
+        if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: file) {
+            self.items = loaded as! Array<Item>
+        }
     }
     
     // Shows new item on the list
