@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var delegate: AddMealDelegate?
     
+    // Dummie data
+    
     var items = [
         Item(name: "Egg", calories: 50),
         Item(name: "Milk", calories: 200),
@@ -30,10 +32,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add(_ item: Item) {
         items.append(item)
-        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let dir = userDirs[0]
-        let file = "\(dir)/eggplant-brownie-items.data"
-        NSKeyedArchiver.archiveRootObject(items, toFile: file)
+
+        NSKeyedArchiver.archiveRootObject(items, toFile: getItemsFile())
+        
         if let table = tableView {
             
             table.reloadData()
@@ -45,6 +46,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    // Get the items file at the user directory
+    
+    func getItemsFile() -> String {
+        
+        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let dir = userDirs[0]
+        let file = "\(dir)/eggplant-brownie-items.data"
+        
+        return file
+    }
+    
     // Bar Button Item is created and action func is setted
     
     override func viewDidLoad() {
@@ -52,11 +64,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let newItemButton = UIBarButtonItem(title: "New item",  style: UIBarButtonItemStyle.plain, target: self, action: #selector(ViewController.showNewItem))
         
         navigationItem.rightBarButtonItem = newItemButton
-        
-        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let dir = userDirs[0]
-        let file = "\(dir)/eggplant-brownie-items.data"
-        if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: file) {
+
+        if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: getItemsFile()) {
             self.items = loaded as! Array<Item>
         }
     }

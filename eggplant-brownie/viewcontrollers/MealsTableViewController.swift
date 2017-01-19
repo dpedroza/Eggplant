@@ -18,23 +18,14 @@ class MealsTableViewController: UITableViewController, AddMealDelegate {
     Meal(name: "Strogonoff", happiness: 4)]
     
     override func viewDidLoad() {
-        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let dir = userDirs[0]
-        let file = "\(dir)/eggplant-brownie.data"
-        if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: file) {
-            self.meals = loaded as! Array<Meal>
-        }
+        meals = MealsDao().loadMeals()
     }
     
     // Add a meal to table view and reload it
     
     func add(_ meal:Meal) {
         meals.append(meal)
-
-        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let dir = userDirs[0]
-        let file = "\(dir)/eggplant-brownie.data"
-        NSKeyedArchiver.archiveRootObject(meals, toFile: file)
+        MealsDao().saveMeals(meals)
         tableView.reloadData()
     }
     
