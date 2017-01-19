@@ -1,36 +1,29 @@
-//
-//  ItemsDao.swift
-//  eggplant-brownie
-//
-//  Created by David Pedroza on 1/19/17.
-//  Copyright © 2017 David Pedroza. All rights reserved.
-//
-
 import Foundation
 
 class ItemsDao {
     
+    let itemsFilePath: String
+
+    // Dir itemsFilePath is setted at init
+    
+    init() {
+        
+        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let dir = userDirs[0]
+        itemsFilePath = "\(dir)/eggplant-brownie-items.data"
+        
+    }
+    
     // Save items list at the user directory
     
-    func saveItems(_ meal: Array<Meal>) {
-        NSKeyedArchiver.archiveRootObject(meal, toFile: getMealsFile())
+    func save(_ items: Array<Item>) {
+        NSKeyedArchiver.archiveRootObject(items, toFile: itemsFilePath)
     }
     
     // Load meals list from user directory
     
-    func loadItems() -> Array<Meal> {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: getMealsFile()) as! Array<Meal>
+    func load() -> Array<Item> {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: itemsFilePath) as! Array<Item>
     }
     
-    // Get the meals file at the user directory
-    
-    func getMealsFile() -> String {
-        
-        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let dir = userDirs[0]
-        let file = "\(dir)/eggplant-brownie-items.data"
-        
-        return file
-        
-    }
 }

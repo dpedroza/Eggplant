@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func add(_ item: Item) {
         items.append(item)
 
-        NSKeyedArchiver.archiveRootObject(items, toFile: getItemsFile())
+        ItemsDao().save(items)
         
         if let table = tableView {
             
@@ -46,17 +46,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    // Get the items file at the user directory
-    
-    func getItemsFile() -> String {
-        
-        let userDirs = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let dir = userDirs[0]
-        let file = "\(dir)/eggplant-brownie-items.data"
-        
-        return file
-    }
-    
     // Bar Button Item is created and action func is setted
     
     override func viewDidLoad() {
@@ -65,9 +54,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         navigationItem.rightBarButtonItem = newItemButton
 
-        if let loaded = NSKeyedUnarchiver.unarchiveObject(withFile: getItemsFile()) {
-            self.items = loaded as! Array<Item>
-        }
+        items = ItemsDao().load()
     }
     
     // Shows new item on the list

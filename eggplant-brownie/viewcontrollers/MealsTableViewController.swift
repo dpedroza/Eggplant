@@ -18,14 +18,14 @@ class MealsTableViewController: UITableViewController, AddMealDelegate {
     Meal(name: "Strogonoff", happiness: 4)]
     
     override func viewDidLoad() {
-        meals = MealsDao().loadMeals()
+        meals = MealsDao().load()
     }
     
     // Add a meal to table view and reload it
     
     func add(_ meal:Meal) {
         meals.append(meal)
-        MealsDao().saveMeals(meals)
+        MealsDao().save(meals)
         tableView.reloadData()
     }
     
